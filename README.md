@@ -12,13 +12,46 @@ The sensor signals (accelerometer and gyroscope) were pre-processed by applying 
 
 ![Data](https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip)
 
+
+## Information about files
+
+The dataset includes the following files:
+=========================================
+
+- 'README.txt'
+
+- 'features_info.txt': Shows information about the variables used on the feature vector.
+
+- 'features.txt': List of all features.
+
+- 'activity_labels.txt': Links the class labels with their activity name.
+
+- 'train/X_train.txt': Training set.
+
+- 'train/y_train.txt': Training labels.
+
+- 'test/X_test.txt': Test set.
+
+- 'test/y_test.txt': Test labels.
+
+The following file is available for the train and test data. Their descriptions are equivalent. 
+
+- 'train/subject_train.txt': Each row identifies the subject who performed the activity for each window sample. Its range is from 1 to 30. 
+
+
+
 ## About the run_analysis.R script
 
 The R script, run_analysis.R, does the following:
 
 1. Downloads the dataset if not already present in the working directory.
 2. Merges the training and the test sets to create one data set.
+	- Reads the test, train and subjectid files
+	- Reads the column names from features.txt
+	- Merge the data
 3. Extracting only the measurements on the mean and standard deviation for each measurement.
+  - Search for mean() and std() using grepl
+  - Create a subset
 4. Using descriptive activity names to name the activities in the data set
 5. Appropriately labeling the data set with descriptive variable names 
 6. Creating a second, independent tidy data set with the average of each variable for each activity and each subject
